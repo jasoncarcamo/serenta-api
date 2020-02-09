@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../../../../config");
+const { JWT_SECRET } = require("../../../config");
 
 const RegisterService = {
     getUser( db, email){
@@ -14,6 +14,9 @@ const RegisterService = {
             subject,
             algorithm: "HS256"
         });
+    },
+    hashPassword(password){
+        return bcrypt.hash( password, 12);
     }
 };
 
