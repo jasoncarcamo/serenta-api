@@ -9,6 +9,9 @@
     "test-migrate": "postgrator --config ./test-postgrate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "10.16.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

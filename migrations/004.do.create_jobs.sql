@@ -3,7 +3,7 @@ CREATE TABLE jobs (
     company TEXT NOT NULL,
     job_title TEXT NOT NULL,
     location TEXT NOT NULL,
-    job_description TEXT NOT NULL
+    job_description TEXT NOT NULL,
     employment_type TEXT NOT NULL,
     compensation TEXT NOT NULL
 );
