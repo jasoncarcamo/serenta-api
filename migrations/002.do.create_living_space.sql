@@ -4,6 +4,7 @@ CREATE TABLE living_space (
     city TEXT NOT NULL,
     state TEXT NOT NULL,
     zip_code TEXT NOT NULL,
+    mobile_number TEXT NOT NULL,
     space_type TEXT,
     room_amount TEXT,
     bathroom_amount TEXT,
