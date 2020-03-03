@@ -15,7 +15,7 @@ AdsRouter
             })
     })
     .post(requireAuth, ( req, res)=>{
-        console.log(req.user.id)
+
         const {
             address,
             city,
@@ -66,5 +66,38 @@ AdsRouter
                 return res.status(200).json({ newAd });
             })
     })
+
+AdsRouter
+    .route("/living-space/:id")
+    .all(express.json())
+    .all(express.urlencoded({ extended: true}))
+    .all(requireAuth)
+    .delete((req, res)=>{
+        console.log(req.params.id)
+        
+        if(!req.params.id){
+            return res.status(400).json({
+                error: "Missing id in params"
+            });
+        };
+
+        AdsService.getAd( req.app.get("db"), req.params.id)
+            .then( ad => {
+                if(!ad){
+                    return res.status(400).json({
+                        error: "The ad you are trying to delete does not exist"
+                    });
+                };
+
+                AdsService.deleteAd( req.app.get("db"), req.params.id)
+                    .then( adDeleted => {
+
+                        return res.status(200).json({
+                            success: "Ad has been deleted"
+                        })
+                    })
+            });
+    })
+
 
 module.exports = AdsRouter;

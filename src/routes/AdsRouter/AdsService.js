@@ -6,7 +6,7 @@ const AdsService = {
         return db.select("*").from("living_space").where({user_id});
     },
     getAd( db, id){
-        return db.select("*").friom("living_space").where({ id }).first();
+        return db.select("*").from("living_space").where({ id }).first();
     },
     createAd( db, ad){
         return db.insert(ad).into("living_space").returning("*").then( ([newAd]) => newAd);
