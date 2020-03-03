@@ -14,6 +14,7 @@ CREATE TABLE living_space (
     lng DECIMAL NOT NULL,
     includes TEXT,
     special_comments TEXT,
+    views INTEGER DEFAULT 0  NOT NULL,
     date_created TIMESTAMP DEFAULT NOW() NOT NULL,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL
 );
