@@ -15,5 +15,5 @@ CREATE TABLE living_space (
     includes TEXT,
     special_comments TEXT,
     date_created TIMESTAMP DEFAULT NOW() NOT NULL,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL
 );
