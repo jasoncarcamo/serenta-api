@@ -7,6 +7,7 @@
     "start": "node ./src/app/server.js",
     "dev": "nodemon ./src/app/server.js",
     "test-migrate": "postgrator --config ./test-postgrate.js",
+    "prod-migrate": "postgrator --config ./prod-postgrate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {

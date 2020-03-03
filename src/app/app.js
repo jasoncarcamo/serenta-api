@@ -10,8 +10,8 @@ const LoginRouter = require("../routes/LoginRouter/LoginRouter");
 const AdsRouter = require("../routes/AdsRouter/AdsRouter");
 const UserRouter = require("../routes/UserRouter/UserRouter");
 
-app.use(morgan("tiny"));
 app.use(cors());
+app.use(morgan("tiny"));
 app.use(helmet());
 
 app.use("/api", RegisterRouter);
