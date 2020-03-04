@@ -99,5 +99,43 @@ AdsRouter
             });
     })
 
+AdsRouter
+    .route("/living-space/view/:id")
+    .all(express.json())
+    .all(express.urlencoded({ extended: true }))
+    .patch((req, res)=>{
+        
+        if(!req.params.id){
+            
+            return res.status(400).json({
+                error: "Missing id in params"
+            });
+        }
+
+        AdsService.getAd( req.app.get("db"), req.params.id)
+            .then( ad => {
+                if(!ad){
+                    return res.status(400).json({
+                        error: "No ad found"
+                    });
+                };
+
+                const newView = {
+                    views: ++ad.views
+                }
+
+                console.log(newView);
+
+                AdsService.updateAd( req.app.get("db"), newView, req.params.id)
+                    .then( updatedAd => {
+                        
+                        return res.status(200).json({
+                            success: "Your ad has been updated"
+                        })
+                    })
+            })
+    })
+
+
 
 module.exports = AdsRouter;
